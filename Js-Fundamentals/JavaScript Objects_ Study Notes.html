@@ -1,0 +1,252 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}</style><style>:root{color-scheme:light dark;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}}:root[data-theme="dark"]{color-scheme:dark;--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}:root[data-theme="light"]{color-scheme:light}@media print{:root,:root[data-theme="dark"]{color-scheme:light;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}}body{background:var(--md-bg);color:var(--md-text);max-width:720px;margin:0 auto;padding:32px;display:flex;flex-direction:column;gap:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'SF Pro','Segoe UI',sans-serif;overflow-wrap:break-word}body>:first-child{margin-top:0}h1,h2,h3,h4,h5,h6{margin:6px 0 0;line-height:1.25;font-weight:600;text-wrap:balance}h1{font-size:1.35em}h2{font-size:1.15em;color:var(--md-muted)}h3,h4,h5,h6{font-size:1em}p,ul,ol,blockquote,table,pre,hr{margin:0}strong{font-weight:600}a{color:var(--md-link);text-decoration:none}a:hover{text-decoration:underline}ul,ol{display:flex;flex-direction:column;gap:6px;padding-left:22px}ul{list-style:disc}ol{list-style:decimal}:is(li,td,th)>*+:is(p,ul,ol,blockquote){margin-top:6px}blockquote{display:flex;flex-direction:column;gap:10px;border-left:2px solid var(--md-rule);padding-left:10px;color:var(--md-muted)}:not(pre)>code{background:var(--md-fill);padding:1px 3px;border-radius:4px;font:.92em 'SF Mono',ui-monospace,Menlo,Consolas,monospace}a>code{background:none;color:inherit}pre{background:var(--md-fill);padding:10px 12px;border-radius:6px;overflow-x:auto;font:12px/1.5 'SF Mono',ui-monospace,Menlo,Consolas,monospace;margin-block:4px}pre code{background:none;padding:0;font:inherit}table{width:100%;border-collapse:separate;border-spacing:2px;font:inherit}th,td{padding:6px 8px;border-radius:3px;text-align:left;vertical-align:top}th{background:var(--md-fill-strong);font-weight:600}td{background:var(--md-fill)}:is(th,td) :not(pre)>code{background:transparent}hr{border:0;border-top:1px solid var(--md-rule-strong);margin-block:10px}img{max-width:100%;height:auto;border-radius:4px}</style>
+</head><body>
+<h1>JavaScript Objects: Study Notes</h1>
+<p>Based on your code snippet. Each section explains one idea in simple terms, with a short pointer to related topics (loops, functions, conditionals, etc.).</p>
+<hr>
+<h2>1. What is an object?</h2>
+<p>An object stores related information together as <strong>key: value pairs</strong> (called <em>properties</em>). Think of it like a labelled box or an ID card: each label (key) points to a piece of data (value).</p>
+<pre><code class="language-js">let Laptop = {
+    name: &#34;Laptop&#34;,
+    price: 1000,
+    quantity: 5
+}
+</code></pre>
+<ul>
+<li><code>name</code>, <code>price</code>, <code>quantity</code> are the <strong>keys</strong>.</li>
+<li><code>&quot;Laptop&quot;</code>, <code>1000</code>, <code>5</code> are the <strong>values</strong>.</li>
+<li>Values can be any type: string, number, boolean, array, function, or even another object.</li>
+</ul>
+<p><strong>Why use objects?</strong> Instead of loose variables like <code>laptopName</code>, <code>laptopPrice</code>, <code>laptopQty</code>, you keep everything about one &quot;thing&quot; in one place.</p>
+<hr>
+<h2>2. Three ways to create objects</h2>
+<h3>a) Object literal (most common)</h3>
+<p>Just write <code>{ }</code> with the properties inside.</p>
+<pre><code class="language-js">const Car = { make: &#39;Chevrolet&#39;, model: &#39;Camaro&#39;, year: 2021 };
+</code></pre>
+<h3>b) Object constructor</h3>
+<pre><code class="language-js">const Bike = new Object({ make: &#39;Trek&#39;, model: &#39;Domane&#39;, year: 2022 });
+</code></pre>
+<p>This works, but the literal <code>{ }</code> is shorter and preferred. In your snippet, you pass an object <em>into</em> <code>new Object(...)</code>, which just returns that same object, so it behaves exactly like a literal.</p>
+<h3>c) Factory function</h3>
+<p>A function that builds and returns a new object each time (see Section 8).</p>
+<blockquote>
+<p><strong>Note:</strong> <code>const</code> on an object means the variable can't be re-assigned to a different object, but you can still change the properties inside it.</p>
+</blockquote>
+<hr>
+<h2>3. Accessing properties</h2>
+<p>Two ways:</p>
+<table>
+<thead>
+<tr>
+<th>Style</th>
+<th>Example</th>
+<th>When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dot notation</td>
+<td><code>Bike.make</code></td>
+<td>Normal case, when you know the key name</td>
+</tr>
+<tr>
+<td>Bracket notation</td>
+<td><code>Car['make']</code></td>
+<td>When the key is in a variable or has spaces/special characters</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-js">console.log(Car[&#39;make&#39;]);  // Chevrolet
+console.log(Bike.make);    // Trek
+</code></pre>
+<p>Bracket notation is what makes <strong>looping over keys</strong> possible (Section 7), because the key is stored in a variable: <code>Student[key]</code>.</p>
+<hr>
+<h2>4. Adding, changing and deleting properties</h2>
+<p>Objects are <strong>dynamic</strong>: you can modify them after creating them.</p>
+<pre><code class="language-js">Student.favoriteFood = &#34;chinese Rice and Ramen&#34;; // ADD a new property
+Student.age = 25;                                 // UPDATE an existing one
+delete Student.grade;                             // DELETE a property
+</code></pre>
+<ul>
+<li>If the key doesn't exist, assigning creates it.</li>
+<li>If the key exists, assigning overwrites it.</li>
+<li><code>delete</code> removes the key and its value completely.</li>
+</ul>
+<hr>
+<h2>5. Methods and the <code>this</code> keyword</h2>
+<p>A <strong>method</strong> is a function stored inside an object.</p>
+<pre><code class="language-js">displayInfo: function() {
+    return `Name: ${this.name}, Age: ${this.age}, Score: ${this.Score}`;
+}
+</code></pre>
+<ul>
+<li><strong><code>this</code></strong> means &quot;the object this method belongs to&quot;. So <code>this.name</code> reads the <code>name</code> of <em>that</em> object.</li>
+<li>Call it with parentheses: <code>Student.displayInfo()</code>.</li>
+<li>Without the <code>()</code>, you get the function itself, not its result.</li>
+</ul>
+<p>You can also attach a method later, as the snippet does with <code>Student.grade = function(Score) {...}</code>.</p>
+<p><strong>Related topic: functions.</strong> A method is just a function with a home. Everything you know about parameters and <code>return</code> still applies.</p>
+<p><strong>Related topic: template literals.</strong> The backtick strings <code>`...${value}...`</code> let you drop variables straight into text with <code>${ }</code>.</p>
+<hr>
+<h2>6. Nested objects and arrays inside objects</h2>
+<p>A property's value can itself be an object or an array.</p>
+<pre><code class="language-js">const Student = {
+    name: &#39;John Doe&#39;,
+    education: { degree: &#39;Bachelor of Science&#39;, major: &#39;Computer Science&#39; }, // nested object
+    friends: [&#39;Alice&#39;, &#39;Bob&#39;, &#39;Charlie&#39;],                                     // array
+    sibling: { name: &#39;Jane Doe&#39;, relationship: &#39;Sister&#39;, age: 18 }
+}
+</code></pre>
+<p>Chain the access step by step:</p>
+<pre><code class="language-js">Student.education.degree   // &#39;Bachelor of Science&#39;  (object inside object)
+Student.friends[0]         // &#39;Alice&#39;                (array index starts at 0)
+Student.sibling[&#39;name&#39;]    // &#39;Jane Doe&#39;             (bracket works too)
+</code></pre>
+<p>Read it left to right: &quot;Student, then education, then degree.&quot;</p>
+<p><strong>Related topic: arrays.</strong> Array positions are called <em>indexes</em> and start at <code>0</code>. <code>friends.length</code> gives the number of items.</p>
+<hr>
+<h2>7. Looping with objects and arrays</h2>
+<h3>Looping over an array's items</h3>
+<pre><code class="language-js">// for...of: gives you each VALUE directly
+for (let friend of Student.friends) {
+    console.log(friend);
+}
+
+// classic for loop: gives you the INDEX, so you use friends[i]
+for (let i = 0; i &lt; Student.friends.length; i++) {
+    console.log(Student.friends[i]);
+}
+</code></pre>
+<h3>Looping over an object's keys: <code>for...in</code></h3>
+<pre><code class="language-js">for (let key in Student) {
+    console.log(`${key}: ${Student[key]}`);
+}
+</code></pre>
+<ul>
+<li><code>key</code> takes each property name in turn (<code>name</code>, <code>age</code>, <code>Score</code>...).</li>
+<li><code>Student[key]</code> uses bracket notation to get the value for that key.</li>
+</ul>
+<p><strong>Quick memory trick:</strong></p>
+<ul>
+<li><code>for...of</code> → loops over <strong>values</strong> (arrays)</li>
+<li><code>for...in</code> → loops over <strong>keys</strong> (objects)</li>
+</ul>
+<h3>Filtering an array</h3>
+<pre><code class="language-js">let friends = Student.friends.filter(function(friend) {
+    return friend.length &gt; 3;
+});
+</code></pre>
+<p><code>filter</code> goes through an array and returns a <strong>new array</strong> containing only the items that pass the test (here: names longer than 3 letters). The original array is unchanged.</p>
+<hr>
+<h2>8. Functions + objects together</h2>
+<h3>Factory function: a function that builds objects</h3>
+<pre><code class="language-js">function createStudent(name, age, score) {
+    return {
+        name: name,
+        age: age,
+        score: score,
+        displayInfo: function() {
+            return `Name: ${this.name}, Age: ${this.age}, Score: ${this.score}`;
+        }
+    }
+}
+
+let student1 = createStudent(&#34;John&#34;, 20, 90);
+let student2 = createStudent(&#34;Jane&#34;, 22, 85);
+</code></pre>
+<p>Instead of writing the same object by hand again and again, you call the function with different arguments and get a fresh object each time. Each one has its own data but the same shape.</p>
+<h3>Passing an object into a function</h3>
+<pre><code class="language-js">function displayStudent(student) {
+    console.log(`name: ${student.name}, Age: ${student.age}, Score: ${student.score}`);
+}
+displayStudent(student1);
+</code></pre>
+<p>The whole object goes in as one parameter, and the function reads its properties with dot notation.</p>
+<blockquote>
+<p><strong>Good to know:</strong> objects are passed by <strong>reference</strong>. If a function changes <code>student.score</code>, the original object changes too (this is exactly how Section 9 works).</p>
+</blockquote>
+<hr>
+<h2>9. The student grading exercise, step by step</h2>
+<h3>Getting input from the user</h3>
+<pre><code class="language-js">let student = {
+    name: prompt(&#34;Enter your name: &#34;),
+    age: Number(prompt(&#34;Enter your age: &#34;)),
+    score: Number(prompt(&#34;Enter your score: &#34;)),
+    course: prompt(&#34;Enter your course: &#34;),
+};
+</code></pre>
+<ul>
+<li><code>prompt()</code> opens a popup box and returns whatever the user types, <strong>always as a string</strong>.</li>
+<li><code>Number(...)</code> converts that string into a number so you can compare scores properly.</li>
+<li>The results are stored straight into the object's properties.</li>
+</ul>
+<h3>Task 1: display the info</h3>
+<pre><code class="language-js">function displayStudentInfo(){
+    alert(`Student Information:\n Name: ${student.name} ...`);
+}
+</code></pre>
+<p><code>alert()</code> shows a popup message. <code>\n</code> means &quot;new line&quot;.</p>
+<h3>Task 2: calculate the grade (conditionals)</h3>
+<pre><code class="language-js">function calculateStudentGrade(){
+    let score = student.score;
+    if (score &gt;= 90 &amp;&amp; score &lt;= 100) {
+        student.grade = &#39;A&#39;;
+    } else if (score &gt;= 80 &amp;&amp; score &lt; 90) {
+        student.grade = &#39;B&#39;;
+    } // ... C, D, F ...
+    else {
+        student.grade = &#39;Invalid score&#39;;
+    }
+}
+</code></pre>
+<ul>
+<li>Uses <strong>if / else if / else</strong>: JavaScript checks from top to bottom and runs the first condition that is true.</li>
+<li><code>&amp;&amp;</code> means <strong>AND</strong>: both sides must be true (<code>score &gt;= 90 &amp;&amp; score &lt;= 100</code>).</li>
+<li>The function <strong>adds a new property</strong> (<code>grade</code>) to the existing object. This ties back to Section 4.</li>
+</ul>
+<h3>Task 3: pass or fail</h3>
+<pre><code class="language-js">function determineStudentStatus(){
+    if (student.score &gt;= 50) {
+        student.status = &#39;Pass&#39;;
+    } else {
+        student.status = &#39;Fail&#39;;
+    }
+}
+</code></pre>
+<p>Same idea with a simple two-way <code>if / else</code>. It adds the <code>status</code> property.</p>
+<h3>Run order matters</h3>
+<pre><code class="language-js">displayStudentInfo();           // shows original 4 properties
+calculateStudentGrade();        // adds grade
+determineStudentStatus();       // adds status
+displayStudentInfoWithNewProperties(); // shows all 6 properties
+</code></pre>
+<p>The functions must run <strong>before</strong> the final display, otherwise <code>student.grade</code> and <code>student.status</code> would be <code>undefined</code>.</p>
+<p><strong>Related topic: function declarations vs calls.</strong> Writing <code>function foo() {}</code> only <em>defines</em> it. Nothing happens until you call it with <code>foo()</code>.</p>
+<hr>
+<h2>10. Common gotchas</h2>
+<ol>
+<li><strong>Case-sensitive keys.</strong> <code>Student.Score</code> and <code>Student.score</code> are different properties. In the commented code the key is <code>Score</code>, but in <code>createStudent</code> it's <code>score</code>. Pick one style (lowercase <code>score</code> is the convention) and stick with it.</li>
+<li><strong><code>prompt</code> and <code>alert</code> only work in a browser.</strong> They won't run in Node.js. Use <code>console.log</code> there.</li>
+<li><strong><code>prompt</code> returns strings.</strong> Always convert with <code>Number()</code> when you need maths or comparisons.</li>
+<li><strong>Dot vs bracket.</strong> <code>obj.key</code> looks for a property literally named &quot;key&quot;. Use <code>obj[key]</code> when <code>key</code> is a variable.</li>
+<li><strong>Forgetting <code>()</code> when calling a method.</strong> <code>Student.displayInfo</code> is the function; <code>Student.displayInfo()</code> runs it.</li>
+<li><strong>Extra spaces in alerts.</strong> Putting each line of a template literal on its own indented line adds those spaces into the popup text. Keep lines flush left or join with <code>\n</code> only.</li>
+<li><strong>Arrow functions and <code>this</code>.</strong> Inside object methods, use regular <code>function() {}</code>. Arrow functions don't have their own <code>this</code>, so <code>this.name</code> won't work.</li>
+</ol>
+<hr>
+<h2>11. Quick cheat sheet</h2>
+<pre><code class="language-js">const obj = { a: 1, b: 2 };      // create
+obj.a                            // read (dot)
+obj[&#39;b&#39;]                         // read (bracket)
+obj.c = 3;                       // add
+obj.a = 10;                      // update
+delete obj.b;                    // remove
+&#39;a&#39; in obj                       // does key exist? true
+Object.keys(obj)                 // [&#39;a&#39;, &#39;c&#39;]
+Object.values(obj)               // [10, 3]
+Object.entries(obj)              // [[&#39;a&#39;, 10], [&#39;c&#39;, 3]]
+for (let k in obj) { ... }       // loop over keys
+</code></pre>
+<p><strong>Topics touched in this code:</strong> objects, properties, methods, <code>this</code>, nested data, arrays, <code>for</code> / <code>for...of</code> / <code>for...in</code> loops, <code>filter</code>, functions &amp; parameters, <code>return</code>, template literals, <code>if / else if / else</code>, logical <code>&amp;&amp;</code>, type conversion with <code>Number()</code>, <code>prompt</code> / <code>alert</code>.</p>
+
+</body></html>

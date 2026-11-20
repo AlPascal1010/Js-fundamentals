@@ -1,0 +1,423 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}</style><style>:root{color-scheme:light dark;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}}:root[data-theme="dark"]{color-scheme:dark;--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}:root[data-theme="light"]{color-scheme:light}@media print{:root,:root[data-theme="dark"]{color-scheme:light;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}}body{background:var(--md-bg);color:var(--md-text);max-width:720px;margin:0 auto;padding:32px;display:flex;flex-direction:column;gap:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'SF Pro','Segoe UI',sans-serif;overflow-wrap:break-word}body>:first-child{margin-top:0}h1,h2,h3,h4,h5,h6{margin:6px 0 0;line-height:1.25;font-weight:600;text-wrap:balance}h1{font-size:1.35em}h2{font-size:1.15em;color:var(--md-muted)}h3,h4,h5,h6{font-size:1em}p,ul,ol,blockquote,table,pre,hr{margin:0}strong{font-weight:600}a{color:var(--md-link);text-decoration:none}a:hover{text-decoration:underline}ul,ol{display:flex;flex-direction:column;gap:6px;padding-left:22px}ul{list-style:disc}ol{list-style:decimal}:is(li,td,th)>*+:is(p,ul,ol,blockquote){margin-top:6px}blockquote{display:flex;flex-direction:column;gap:10px;border-left:2px solid var(--md-rule);padding-left:10px;color:var(--md-muted)}:not(pre)>code{background:var(--md-fill);padding:1px 3px;border-radius:4px;font:.92em 'SF Mono',ui-monospace,Menlo,Consolas,monospace}a>code{background:none;color:inherit}pre{background:var(--md-fill);padding:10px 12px;border-radius:6px;overflow-x:auto;font:12px/1.5 'SF Mono',ui-monospace,Menlo,Consolas,monospace;margin-block:4px}pre code{background:none;padding:0;font:inherit}table{width:100%;border-collapse:separate;border-spacing:2px;font:inherit}th,td{padding:6px 8px;border-radius:3px;text-align:left;vertical-align:top}th{background:var(--md-fill-strong);font-weight:600}td{background:var(--md-fill)}:is(th,td) :not(pre)>code{background:transparent}hr{border:0;border-top:1px solid var(--md-rule-strong);margin-block:10px}img{max-width:100%;height:auto;border-radius:4px}</style>
+</head><body>
+<h1>JavaScript Notes: Functions, Loops &amp; Conditional Statements</h1>
+<p>Three core building blocks, explained in simple terms with short examples. They connect to the objects notes, since you use all of these together when working with objects.</p>
+<hr>
+<h1>PART 1: CONDITIONAL STATEMENTS</h1>
+<p>Conditionals let your code <strong>make decisions</strong>: &quot;if this is true, do that; otherwise, do something else.&quot;</p>
+<h2>1.1 <code>if</code></h2>
+<p>Runs a block of code only when the condition is <code>true</code>.</p>
+<pre><code class="language-js">let age = 20;
+if (age &gt;= 18) {
+    console.log(&#34;Adult&#34;);
+}
+</code></pre>
+<h2>1.2 <code>if...else</code></h2>
+<p>Gives you a second path for when the condition is <code>false</code>.</p>
+<pre><code class="language-js">if (score &gt;= 50) {
+    status = &#39;Pass&#39;;
+} else {
+    status = &#39;Fail&#39;;
+}
+</code></pre>
+<h2>1.3 <code>if...else if...else</code></h2>
+<p>Use when there are <strong>more than two outcomes</strong>. JavaScript checks from top to bottom and runs the <strong>first</strong> condition that is true, then skips the rest.</p>
+<pre><code class="language-js">if (score &gt;= 90) {
+    grade = &#39;A&#39;;
+} else if (score &gt;= 80) {
+    grade = &#39;B&#39;;
+} else if (score &gt;= 70) {
+    grade = &#39;C&#39;;
+} else {
+    grade = &#39;F&#39;;
+}
+</code></pre>
+<p>Because it stops at the first match, you don't need to write <code>score &gt;= 80 &amp;&amp; score &lt; 90</code>. If the score were 95, the first branch would already have caught it.</p>
+<h2>1.4 Comparison operators</h2>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>===</code></td>
+<td>equal value <strong>and</strong> type</td>
+<td><code>5 === 5</code> → true, <code>5 === &quot;5&quot;</code> → false</td>
+</tr>
+<tr>
+<td><code>!==</code></td>
+<td>not equal</td>
+<td><code>5 !== 6</code> → true</td>
+</tr>
+<tr>
+<td><code>&gt;</code> <code>&lt;</code></td>
+<td>greater / less than</td>
+<td><code>10 &gt; 3</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code> <code>&lt;=</code></td>
+<td>greater or equal / less or equal</td>
+<td><code>score &gt;= 50</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Tip:</strong> Prefer <code>===</code> over <code>==</code>. The double version converts types behind your back (<code>5 == &quot;5&quot;</code> is true), which causes sneaky bugs.</p>
+</blockquote>
+<h2>1.5 Logical operators</h2>
+<p>Combine several conditions.</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Name</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>AND</td>
+<td><strong>both</strong> sides must be true</td>
+</tr>
+<tr>
+<td><code>||</code></td>
+<td>OR</td>
+<td><strong>at least one</strong> side must be true</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>NOT</td>
+<td>flips true ↔ false</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-js">if (score &gt;= 90 &amp;&amp; score &lt;= 100) { ... }   // between 90 and 100
+if (day === &#34;Sat&#34; || day === &#34;Sun&#34;) { ... } // weekend
+if (!isLoggedIn) { ... }                    // NOT logged in
+</code></pre>
+<h2>1.6 <code>switch</code></h2>
+<p>A tidier option when you compare <strong>one value against many exact matches</strong>.</p>
+<pre><code class="language-js">switch (day) {
+    case &#34;Mon&#34;:
+        console.log(&#34;Start of week&#34;);
+        break;
+    case &#34;Fri&#34;:
+        console.log(&#34;Almost weekend&#34;);
+        break;
+    default:
+        console.log(&#34;Regular day&#34;);
+}
+</code></pre>
+<ul>
+<li><code>break</code> stops execution from &quot;falling through&quot; into the next case.</li>
+<li><code>default</code> runs when nothing matches (like <code>else</code>).</li>
+</ul>
+<h2>1.7 Ternary operator (one-line if/else)</h2>
+<pre><code class="language-js">let status = score &gt;= 50 ? &#39;Pass&#39; : &#39;Fail&#39;;
+// condition ? valueIfTrue : valueIfFalse
+</code></pre>
+<p>Good for short, simple decisions. For anything longer, use a normal <code>if</code>.</p>
+<h2>1.8 Truthy and falsy</h2>
+<p>In a condition, JavaScript treats some values as <code>false</code>. These are the <strong>falsy</strong> values:</p>
+<p><code>false</code>, <code>0</code>, <code>&quot;&quot;</code> (empty string), <code>null</code>, <code>undefined</code>, <code>NaN</code></p>
+<p>Everything else is <strong>truthy</strong>. So <code>if (name) {...}</code> runs only when <code>name</code> has real content.</p>
+<hr>
+<h1>PART 2: LOOPS</h1>
+<p>Loops let you <strong>repeat code</strong> without writing it over and over.</p>
+<h2>2.1 <code>for</code> loop</h2>
+<p>Best when you know <strong>how many times</strong> to repeat.</p>
+<pre><code class="language-js">for (let i = 0; i &lt; 5; i++) {
+    console.log(i);   // 0, 1, 2, 3, 4
+}
+</code></pre>
+<p>It has three parts inside the brackets:</p>
+<ol>
+<li><strong>Start:</strong> <code>let i = 0</code> (runs once at the beginning)</li>
+<li><strong>Condition:</strong> <code>i &lt; 5</code> (checked before every round; the loop stops when false)</li>
+<li><strong>Update:</strong> <code>i++</code> (runs after every round; adds 1 to <code>i</code>)</li>
+</ol>
+<p>Looping through an array by index:</p>
+<pre><code class="language-js">let friends = [&#39;Alice&#39;, &#39;Bob&#39;, &#39;Charlie&#39;];
+for (let i = 0; i &lt; friends.length; i++) {
+    console.log(friends[i]);
+}
+</code></pre>
+<h2>2.2 <code>while</code> loop</h2>
+<p>Best when you <strong>don't know</strong> how many rounds you'll need. It keeps going while the condition is true.</p>
+<pre><code class="language-js">let count = 0;
+while (count &lt; 3) {
+    console.log(count);
+    count++;          // don&#39;t forget this, or the loop never ends!
+}
+</code></pre>
+<h2>2.3 <code>do...while</code> loop</h2>
+<p>Like <code>while</code>, but it runs <strong>at least once</strong>, because the condition is checked <em>after</em> the code block.</p>
+<pre><code class="language-js">let num;
+do {
+    num = Number(prompt(&#34;Enter a number above 0:&#34;));
+} while (num &lt;= 0);
+</code></pre>
+<p>Handy for asking the user for input until it's valid.</p>
+<h2>2.4 <code>for...of</code> loop (arrays)</h2>
+<p>Gives you each <strong>value</strong> directly. Cleaner than the classic <code>for</code> when you don't need the index.</p>
+<pre><code class="language-js">for (let friend of friends) {
+    console.log(friend);
+}
+</code></pre>
+<h2>2.5 <code>for...in</code> loop (objects)</h2>
+<p>Gives you each <strong>key</strong> of an object.</p>
+<pre><code class="language-js">for (let key in Student) {
+    console.log(`${key}: ${Student[key]}`);
+}
+</code></pre>
+<blockquote>
+<p><strong>Memory trick:</strong> <code>of</code> → <strong>values</strong>, <code>in</code> → <strong>keys</strong>. Avoid <code>for...in</code> on arrays; use <code>for...of</code> or <code>for</code>.</p>
+</blockquote>
+<h2>2.6 Array methods that loop for you</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>What it does</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>forEach</code></td>
+<td>runs a function on each item</td>
+<td>nothing</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>transforms each item</td>
+<td>new array (same length)</td>
+</tr>
+<tr>
+<td><code>filter</code></td>
+<td>keeps items that pass a test</td>
+<td>new array (maybe shorter)</td>
+</tr>
+<tr>
+<td><code>find</code></td>
+<td>gets the first item that passes</td>
+<td>one item (or <code>undefined</code>)</td>
+</tr>
+<tr>
+<td><code>reduce</code></td>
+<td>combines all items into one value</td>
+<td>single value</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-js">let nums = [1, 2, 3, 4];
+
+nums.forEach(n =&gt; console.log(n));          // prints each
+let doubled = nums.map(n =&gt; n * 2);         // [2, 4, 6, 8]
+let evens = nums.filter(n =&gt; n % 2 === 0);  // [2, 4]
+let total = nums.reduce((sum, n) =&gt; sum + n, 0); // 10
+</code></pre>
+<h2>2.7 <code>break</code> and <code>continue</code></h2>
+<ul>
+<li><strong><code>break</code></strong> exits the loop completely.</li>
+<li><strong><code>continue</code></strong> skips the current round and moves to the next one.</li>
+</ul>
+<pre><code class="language-js">for (let i = 1; i &lt;= 5; i++) {
+    if (i === 2) continue;   // skip 2
+    if (i === 4) break;      // stop at 4
+    console.log(i);          // 1, 3
+}
+</code></pre>
+<h2>2.8 Infinite loop warning</h2>
+<p>If the condition never becomes false, the loop never stops and your browser/tab freezes. Typical causes: forgetting <code>count++</code> in a <code>while</code>, or a condition that's always true.</p>
+<hr>
+<h1>PART 3: FUNCTIONS</h1>
+<p>A function is a <strong>reusable block of code</strong> with a name. Write once, use many times.</p>
+<h2>3.1 Function declaration</h2>
+<pre><code class="language-js">function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+greet(&#34;George&#34;);   // &#34;Hello, George!&#34;
+</code></pre>
+<ul>
+<li><strong><code>name</code></strong> is a <strong>parameter</strong>: a placeholder for the input.</li>
+<li><strong><code>&quot;George&quot;</code></strong> is the <strong>argument</strong>: the real value you pass in.</li>
+<li><strong><code>return</code></strong> sends a value back out and <strong>ends</strong> the function.</li>
+</ul>
+<blockquote>
+<p>Defining a function does nothing by itself. It only runs when you <strong>call</strong> it with <code>()</code>.</p>
+</blockquote>
+<h2>3.2 Function expression</h2>
+<p>The function is stored in a variable.</p>
+<pre><code class="language-js">const add = function(a, b) {
+    return a + b;
+};
+add(2, 3);   // 5
+</code></pre>
+<h2>3.3 Arrow function</h2>
+<p>A shorter modern syntax.</p>
+<pre><code class="language-js">const add = (a, b) =&gt; a + b;        // one-liner: return is implied
+const square = n =&gt; n * n;          // one parameter: brackets optional
+const greet = (name) =&gt; {           // multiple lines: use { } and return
+    return `Hello, ${name}`;
+};
+</code></pre>
+<blockquote>
+<p><strong>Heads-up:</strong> arrow functions don't have their own <code>this</code>, so avoid them as methods inside objects.</p>
+</blockquote>
+<h2>3.4 Parameters: defaults and multiple inputs</h2>
+<pre><code class="language-js">function greet(name = &#34;Guest&#34;) {   // default value if nothing is passed
+    return `Hello, ${name}`;
+}
+greet();          // &#34;Hello, Guest&#34;
+greet(&#34;Ada&#34;);     // &#34;Hello, Ada&#34;
+</code></pre>
+<h2>3.5 <code>return</code> vs <code>console.log</code></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>return</code></th>
+<th><code>console.log</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Purpose</td>
+<td>hands a value back to the caller</td>
+<td>prints to the console for you to see</td>
+</tr>
+<tr>
+<td>Can you use the result?</td>
+<td>yes: <code>let x = add(2, 3)</code></td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<p>A function with no <code>return</code> gives back <code>undefined</code>.</p>
+<h2>3.6 Scope: where variables live</h2>
+<pre><code class="language-js">let globalVar = &#34;I&#39;m everywhere&#34;;
+
+function test() {
+    let localVar = &#34;I only exist inside test&#34;;
+    console.log(globalVar);   // works
+}
+
+console.log(localVar);  // ERROR: not accessible out here
+</code></pre>
+<ul>
+<li><strong>Global scope:</strong> declared outside everything, visible everywhere.</li>
+<li><strong>Local (function) scope:</strong> declared inside a function, visible only there.</li>
+<li><code>let</code> and <code>const</code> are also <strong>block scoped</strong>: they only exist inside the nearest <code>{ }</code>.</li>
+</ul>
+<h2>3.7 Functions that call other functions</h2>
+<p>Break big jobs into small, single-purpose functions. This is exactly how your student exercise was built:</p>
+<pre><code class="language-js">displayStudentInfo();
+calculateStudentGrade();
+determineStudentStatus();
+displayStudentInfoWithNewProperties();
+</code></pre>
+<p>Each function does <strong>one job</strong>, which makes code easier to read, test and reuse.</p>
+<h2>3.8 Callback functions</h2>
+<p>A function passed <strong>into</strong> another function as an argument.</p>
+<pre><code class="language-js">let friends = Student.friends.filter(function(friend) {
+    return friend.length &gt; 3;
+});
+</code></pre>
+<p>The function inside <code>filter(...)</code> is a callback: <code>filter</code> calls it on every item. Arrow-function version: <code>friends.filter(f =&gt; f.length &gt; 3)</code>.</p>
+<h2>3.9 Functions in objects (methods)</h2>
+<pre><code class="language-js">const Student = {
+    name: &#34;John&#34;,
+    greet: function() {
+        return `Hi, I&#39;m ${this.name}`;
+    }
+};
+Student.greet();
+</code></pre>
+<p><code>this</code> refers to the object the method belongs to.</p>
+<hr>
+<h1>PUTTING IT ALL TOGETHER</h1>
+<p>One short example using all three ideas:</p>
+<pre><code class="language-js">function gradeAll(scores) {                 // FUNCTION with a parameter
+    let results = [];
+
+    for (let score of scores) {             // LOOP over the array
+        let grade;
+
+        if (score &gt;= 70) {                  // CONDITIONALS
+            grade = &#39;A&#39;;
+        } else if (score &gt;= 50) {
+            grade = &#39;B&#39;;
+        } else {
+            grade = &#39;F&#39;;
+        }
+
+        results.push({ score, grade });     // build an array of objects
+    }
+
+    return results;                         // send the result back
+}
+
+console.log(gradeAll([85, 60, 30]));
+// [ {score: 85, grade: &#39;A&#39;}, {score: 60, grade: &#39;B&#39;}, {score: 30, grade: &#39;F&#39;} ]
+</code></pre>
+<hr>
+<h1>QUICK REVIEW</h1>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Remember this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>if / else if / else</code></td>
+<td>first true condition wins, rest are skipped</td>
+</tr>
+<tr>
+<td><code>===</code></td>
+<td>strict comparison; use it instead of <code>==</code></td>
+</tr>
+<tr>
+<td><code>&amp;&amp;</code> <code>||</code> <code>!</code></td>
+<td>AND, OR, NOT</td>
+</tr>
+<tr>
+<td><code>for</code></td>
+<td>known number of repeats</td>
+</tr>
+<tr>
+<td><code>while</code></td>
+<td>repeat until a condition becomes false</td>
+</tr>
+<tr>
+<td><code>do...while</code></td>
+<td>runs at least once</td>
+</tr>
+<tr>
+<td><code>for...of</code> / <code>for...in</code></td>
+<td>values of arrays / keys of objects</td>
+</tr>
+<tr>
+<td><code>map</code> <code>filter</code> <code>reduce</code></td>
+<td>loop shortcuts that return new results</td>
+</tr>
+<tr>
+<td>Function</td>
+<td>parameters in, <code>return</code> out, must be <strong>called</strong> to run</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>variables inside a function stay inside it</td>
+</tr>
+</tbody>
+</table>
+
+</body></html>
